@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('testimonies/', views.testimonies, name='testimonies'),
     path('contact/', views.contact, name='contact'),
     path('services/', views.services, name='services'),
+    path('back-office/', include('main.back-office.urls')),
 ]

@@ -214,18 +214,20 @@
                         <h1 class="price_text">$10</h1>
                      </div>
                   </div>
+               {% for product in products %}
                   <div class="box_main">
                      <div class="left_main">
-                        <div class="cup_img_1"><img src="{% static 'front/images/cup-img-5.png' %}"></div>
+                        <div class="cup_img_1"><img src="{{ product.image.url }}"></div>
                      </div>
                      <div class="middle_main">
                         <div class="border_10"></div>
                      </div>
                      <div class="right_main">
-                        <h6 class="milk_text">Red Tea</h6>
-                        <h1 class="price_text">$10</h1>
+                        <h6 class="milk_text">{{ product.name }}</h6>
+                        <h1 class="price_text">{{ product.price }}</h1>
                      </div>
                   </div>
+               {% endfor %}
                </div>
             </div>
          </div>
@@ -296,14 +298,15 @@
                   <div><img src="{% static 'front/images/img-3.png' %}" class="image_3"></div>
                </div>
             </div>
+         {% for banner in banners %}
             <div class="carousel-item">
                <div class="container">
-                  <h1 class="shop_taital">Our Tea Shop</h1>
-                  <p class="shop_text">It is a long established fact that a reader will beIt is a long established fact
-                     that a reader will be</p>
-                  <div><img src="{% static 'front/images/img-3.png' %}" class="image_3"></div>
+                  <h1 class="shop_taital">{{banner.title}}</h1>
+                  <p class="shop_text">{{banner.description}}</p>
+                  <div><img src="{{banner.image.url}}" class="image_3"></div>
                </div>
             </div>
+            {% endfor %}
          </div>
          <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="next">
             <i class="fa fa-arrow-left"></i>
@@ -357,23 +360,24 @@
                         </div>
                      </div>
                   </div>
+               {% for faq in faqs %}
                   <div class="card">
                      <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                            <button type="button" class="btn btn-link collapsed w-100" data-toggle="collapse"
-                              data-target="#collapseThree"><i class="fa fa-plus"></i>Where does it come from?</button>
+                              data-target="#collapseThree"><i class="fa fa-plus"></i>{{faq.question}}</button>
                         </h2>
                      </div>
                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                         data-parent="#accordionExample">
                         <div class="card-body">
-                           <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties
-                              for a given HTML element such as colors, backgrounds, fonts etc. <a
-                                 href="https://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a>
+                           <p>{{faq.answer }}<a
+                                 href="{{faq.link}}" target="_blank">Learn more.</a>
                            </p>
                         </div>
                      </div>
                   </div>
+               {% endfor %}
                   <div class="card">
                      <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
@@ -440,17 +444,18 @@
                   <div class="border"></div>
                </div>
             </div>
+         {% for testi in testimonials %}
             <div class="carousel-item">
                <div class="container">
-                  <h1 class="clients_taital">Client's Testimonial</h1>
-                  <p class="clients_text">Potential Clients are pouring our website on a daily basis after we use
-                     Organic Visit, really recommended their great job!</p>
-                  <div class="client_img"><img src="{% static 'front/images/client-img.png' %}"></div>
-                  <h1 class="louis_text">Louis Gilyard</h1>
-                  <h1 class="smyth_text">SMYTH</h1>
+                  <h1 class="clients_taital">{{testi.title}}</h1>
+                  <p class="clients_text">{{testi.description}}</p>
+                  <div class="client_img"><img src="{{testi.photo.url}}"></div>
+                  <h1 class="louis_text">{{testi.l_name}}</h1>
+                  <h1 class="smyth_text">{{testi.f_name}}</h1>
                   <div class="border"></div>
                </div>
             </div>
+         {% endfor %}
          </div>
          <a class="carousel-control-prev" href="#custum_slider" role="button" data-slide="next">
             <i class="fa fa-angle-left"></i>

@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'based.html' %}
 
 {% block content %}
+{% load static %}
 
 <div class="container-fluid">
    <div class="row column_title">
@@ -28,7 +29,7 @@
                            <aside class="sm-side">
                               <div class="user-head">
                                  <a class="inbox-avatar" href="javascript:;">
-                                 <img  width="65" src="images/layout_img/user_img.jpg" alt="#" />
+                                 <img  width="65" src="{% static 'dashboard/images/layout_img/user_img.jpg' %}" alt="#" />
                                  </a>
                                  <div class="user-name">
                                     <h5><a href="#">John David</a></h5>

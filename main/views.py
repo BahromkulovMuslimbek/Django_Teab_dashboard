@@ -3,7 +3,19 @@ from . import models
 
 
 def index(request):
-    return render(request, 'front/index.html')
+    products = models.Product.objects.all()
+    banners = models.Banner.objects.all()
+    faqs = models.Faq.objects.all()
+    testimonials = models.Testimonial.objects.all()
+    context = {
+        'products': products,
+        'banners': banners,
+        'faqs': faqs,
+        'testimonials': testimonials,
+
+    }
+
+    return render(request, 'front/index.html', context)
 
 def about(request):
     return render(request, 'front/about.html')
